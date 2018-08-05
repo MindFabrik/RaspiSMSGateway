@@ -1,0 +1,10 @@
+{
+    "name": "node-api",
+    "main": "server.js",
+    "dependencies": {
+        "express": "~4.0.0",
+        "body-parser": "~1.0.1",
+        "jsonwebtoken": "~8.3.0",
+        "ip":"~1.0.1"
+    }
+}

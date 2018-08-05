@@ -1,0 +1,7 @@
+{
+    "JWTSecureKey" : "zZ5s7Xa4XnEVRAgyYwUNGUPqk4d2MQmqM7YhhqcMHjssBPcez226L7ePXdTrebVm",
+    "AllowedIPAddr" : ["::ffff:192.168.1.1", "192.168.1.1"],
+    "Port" : 8080,
+    "JWT_Issuer": "Issuername",
+    "JWT_Audience": "Audience"
+}
