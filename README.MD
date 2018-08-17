@@ -1,25 +1,25 @@
 # Rasberry Pi SMS Gateway
-This projects allows you send to a text message (SMS) over a REST API
-connection. You need a Rasberry Pi and a 3G/4G Broadband USB device
+This projects allows you to send a text message (SMS) over a REST API
+connection. You need a Raspberry Pi and a 3G/4G Broadband USB device
 (e.g. Huawei K3765 or Vodafone Mobile Connect UMTS).
 
 ## Prepare Rasberry Pi
-The communication between Reasberry Pi and the Broadband Stick will be
+The communication between Reaspberry Pi and the Broadband Stick will be
 done via Gammu (https://wammu.eu). This project includes a Node.js
-script which will receive commands via a REST API interface and execute
+script which will receive commands via the REST API interface and execute
 tasks to the Gammu engine.
 
 Please install the following components on your Rasberry Pi:
 
 ###NodeJS and NPM
-You can simple install NodeJS and NPM via the apt-get command of Rasbian:
+You can simply install NodeJS and NPM via the apt-get command of Raspbian:
 
 ```
 sudo apt-get install nodejs npm
 ```
 
 ### Gammu
-Unfortantaly the Rasbian repository is providing an old version of Gammu. The old 
+Unfortunately the Raspbian repository provides an old version of Gammu. The old 
 version has some issues with some Broadband USB devices. Please download the
 latest version (e.g. 1.39.0) of Gammu from https://wammu.eu/download/gammu/1.39.0.
 
@@ -68,10 +68,10 @@ SMSC = +49
 ```
 
 ### Configure your Broadcast USB Device
-Some Broadcast USB Devices including a USB Storage and the Broadband device. Rasbian 
+Some Broadcast USB Devices including a USB Storage and the Broadband device. Raspbian 
 is using mostly the USB Storage as a default selection (mode).
 
-If you using the K3765 device, you can run the following command to find out the
+If you use the K3765 device, run the following command to find out the
 selected mode:
 
 ```
@@ -88,7 +88,7 @@ the output should looks like so:
 Bus 001 Device 005: ID 12d1:1465 Huawei Technologies Co., Ltd.
 ```
 
-To ensure that the USB device is using primary the Broadband mode, please 
+To ensure that the USB device uses primarily the Broadband mode, please 
 modify the /lib/udev/rules.d/41-usb_modeswitch.rules file. Add the following
 lines to the rule file:
 
@@ -105,7 +105,7 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1465", GROUP="use
 
 ## The NodeJS Script
 Download the current project and save it in a directory (e.g. /opt/MindFabrik/SMSRestAPI)
-on the Rasberry Pi.
+on the Raspberry Pi.
 
 ### Download and Install NPM packages
 Open the directory where the project is stored. And execute the following commands
@@ -119,10 +119,10 @@ sudo npm install
 Please check the settings in the config.json file. 
 
 JWT Settings (JWTSecureKey,JWT_Issuer, JWT_Audience ): 
-The Node.js script accept only REST API calls with a valid JWT. Please configure your
+The Node.js script accepts only REST API calls with a valid JWT. Please configure your
 JWT settings from your environment.
 
-AllowedIPAddr is a Array (comma separated) list of IP address how are allowed to
+AllowedIPAddr is an Array (comma separated) list of IP address which are allowed to
 send REST API commands to the script.
 
 Port defines the network port of the REST API.
@@ -155,11 +155,11 @@ sudo service restapisms start
 ```
 
 ## Usage
-You can simple use the REST API with following commands. Please ensure that 
+You can simply use the REST API with following commands. Please ensure that 
 all requests includes a valid JWT Token in the Header with the key x-access-token.
 
 ### Get Network Info
-To validate if the REST API has access to the mobile network, you can send
+To validate whether the REST API has access to the mobile network, you can send
 the following request:
 
 GET <IP>/api/networkinfo
@@ -180,7 +180,7 @@ BODY
 
 
 ## License
-This project is licensed unter the Apache License 2.0. Please have a look into the LICENSE file.
+This project is licensed under the Apache License 2.0. Please have a look into the LICENSE file.
 
 
 
