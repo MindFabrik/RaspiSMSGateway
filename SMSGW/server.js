@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var port = config.Port;
-var appversion = "SMSRestAPI Version 004";
+var appversion = "SMSRestAPI Version 005";
 
 
 // ROUTES FOR SMS API
@@ -32,7 +32,7 @@ routerNetworkInfo.get('/', function(req, res) {
   exec(cmd, function(error, stdout, stderr) {
     console.log('Requesting Network Information: Done');
     res.setHeader('Content-Type', 'application/json'); 
-    res.json(JSON.stringify({ result: stdout, errormsg: stderr, errorout: error}));
+    res.json({ result: stdout, errormsg: stderr, errorout: error});
   });
 
 });
@@ -76,7 +76,7 @@ sendSMS.post('/',function(req, res) {
       console.log('Request to Send SMS: FAILED');
     }
 
-    res.json(JSON.stringify({ result: stdout, errormsg: stderr, errorout: error}));
+    res.json({ result: stdout, errormsg: stderr, errorout: error});
   });
 
 });
